@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#12170e">
+<title>Learn with Pankaj Bhardwaj — Way 2 Labh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@500;600;700;800&family=Noto+Serif+Devanagari:wght@600;700&family=Noto+Sans+Devanagari:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12170e;
+    --panel:#1a2115;
+    --panel2:#212a1a;
+    --line:#3c4a2e;
+    --gold:#d8ad48;
+    --gold-lt:#f0d585;
+    --rust:#c1613a;
+    --cream:#f7f2e2;
+    --muted:#a7b192;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ink);color:var(--cream);font-family:Manrope,sans-serif;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .hi{font-family:"Noto Sans Devanagari",Manrope,sans-serif}
+  .hi-serif{font-family:"Noto Serif Devanagari",serif}
+  h1,h2,.brandtag{font-family:Fraunces,serif}
+
+  body:before{content:"";position:fixed;inset:0;pointer-events:none;
+    background-image:radial-gradient(circle at 18% 8%,rgba(216,173,72,.10),transparent 45%),
+                      radial-gradient(circle at 85% 30%,rgba(193,97,58,.10),transparent 45%);
+  }
+
+  .shell{width:min(620px,100%);margin:auto;position:relative;background:var(--panel);min-height:100vh;box-shadow:0 0 70px rgba(0,0,0,.5)}
+
+  .nav{height:82px;padding:0 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:12px;position:relative}
+  .logo-frame{position:relative;width:56px;height:56px;flex:0 0 auto}
+  .logo-frame img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:2.5px solid var(--gold);box-shadow:0 0 0 3px var(--ink),0 6px 16px rgba(0,0,0,.4)}
+  .logo-frame .mono{position:absolute;bottom:-4px;right:-6px;background:var(--rust);color:var(--cream);font-family:Fraunces,serif;font-weight:700;font-size:11px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--panel);transform:rotate(-8deg)}
+  .brand-text strong{display:block;font-size:15px;line-height:1.2;font-family:Fraunces,serif;font-weight:600}
+  .brand-text small{color:var(--gold-lt);font-size:11px;letter-spacing:.02em}
+
+  .tg-top{display:flex;align-items:center;gap:7px;padding:9px 14px;border:1px solid var(--gold);background:rgba(216,173,72,.1);border-radius:999px;color:var(--gold-lt);font-weight:700;font-size:13px;white-space:nowrap}
+  .tg-icon{width:20px;height:20px;display:grid;place-items:center;border-radius:50%;background:#229ed9;color:#fff;flex:0 0 auto}
+  .tg-icon svg{width:12px;height:12px;fill:currentColor}
+
+  .hero{padding:46px 22px 30px;text-align:center}
+  .kicker{display:inline-flex;align-items:center;gap:8px;color:var(--gold-lt);font-size:12.5px;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:var(--panel2)}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+
+  h1{font-size:clamp(30px,7.5vw,42px);line-height:1.12;letter-spacing:-.01em;margin:22px 0 4px;font-weight:600}
+  .hi-headline{display:block;font-size:.56em;color:var(--muted);font-weight:600;margin-top:6px}
+
+  .brandtag{display:inline-flex;flex-direction:column;align-items:center;margin:16px 0 20px;padding:10px 22px;border:1px solid var(--gold);border-radius:10px;position:relative}
+  .brandtag b{font-size:19px;letter-spacing:.03em;color:var(--gold-lt);font-weight:700}
+  .brandtag span{font-size:11px;color:var(--muted);margin-top:2px}
+
+  .lead{color:var(--cream);font-size:15.5px;line-height:1.7;max-width:480px;margin:0 auto}
+  .lead .hi{display:block;color:var(--muted);margin-top:10px;line-height:1.75;font-size:.98em}
+
+  .primary{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;width:100%;padding:0 22px;margin-top:26px;background:linear-gradient(100deg,var(--gold),var(--gold-lt));color:#1a1204;border-radius:12px;font-weight:800;font-size:15.5px;box-shadow:0 14px 34px rgba(216,173,72,.22);transition:.2s;border:none;cursor:pointer}
+  .primary:hover{transform:translateY(-2px);filter:brightness(1.03)}
+  .primary .hi{color:#1a1204;font-size:.85em;display:block;font-weight:600;margin-top:2px}
+  .free{display:block;color:var(--muted);font-size:12.5px;text-align:center;margin-top:10px}
+
+  .method{padding:34px 20px 12px}
+  .section-title{text-align:center;margin-bottom:24px}
+  .section-title span{color:var(--gold-lt);font-size:12.5px;font-weight:700;letter-spacing:.03em}
+  .section-title h2{font-size:clamp(24px,5vw,32px);margin:8px 0 6px;font-weight:600}
+  .section-title p{color:var(--muted);margin:0;font-size:14px}
+  .section-title .hi{display:block;color:var(--muted);margin-top:4px;font-size:13px}
+
+  .cards{display:grid;grid-template-columns:1fr;gap:13px;padding:0 2px 30px}
+  .card{padding:20px;background:var(--panel2);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:14px}
+  .card:nth-child(2){border-left-color:var(--rust)}
+  .card:nth-child(3){border-left-color:var(--gold-lt)}
+  .num{font-size:11.5px;font-weight:700;color:var(--gold-lt);letter-spacing:.04em}
+  .card:nth-child(2) .num{color:var(--rust)}
+  .card h3{font-size:20px;margin:14px 0 8px;font-family:Fraunces,serif;font-weight:600}
+  .card p{margin:0;color:var(--muted);line-height:1.6;font-size:13.8px}
+  .card p .hi{display:block;color:#8a9478;margin-top:8px;font-size:.97em}
+
+  .join{margin:6px 18px 50px;padding:32px 20px;text-align:center;background:linear-gradient(160deg,rgba(216,173,72,.08),transparent 60%),var(--panel2);border:1px solid var(--gold);border-radius:18px}
+  .join h2{font-size:clamp(23px,4.5vw,30px);margin:0 0 6px;font-weight:600}
+  .join .hi-serif{display:block;color:var(--gold-lt);font-size:.62em;margin-top:4px}
+  .join p{color:var(--muted);margin:14px 0 6px;font-size:14px;line-height:1.6}
+  .join p .hi{display:block;margin-top:6px;font-size:.96em}
+
+  footer{border-top:1px solid var(--line);padding:26px 22px 40px;text-align:center;color:var(--muted);font-size:12px;line-height:1.7}
+  footer b{color:var(--cream)}
+  footer a{color:var(--gold-lt)}
+  .disclaimer{max-width:820px;margin:14px auto 0;color:#6d7a5f}
+  .disclaimer .hi{display:block;margin-top:6px}
+
+  @media(max-width:420px){
+    .nav{height:74px;padding:0 14px}
+    .logo-frame{width:48px;height:48px}
+    .brand-text small{display:none}
+    .tg-top span:last-child{display:none}
+    .tg-top{padding:8px}
+    .hero{padding:38px 16px 26px}
+    .method{padding:30px 14px 10px}
+    .join{margin:6px 14px 44px;padding:28px 16px}
+    footer{padding:24px 16px 36px}
+  }
+</style>
+</head>
+<body>
+<main class="shell">
+
+  <nav class="nav">
+    <a class="brand" href="#top" aria-label="Pankaj Bhardwaj home">
+      <span class="logo-frame">
+        <img src="pankaj-logo.jpg" alt="Pankaj Bhardwaj">
+        <span class="mono">PB</span>
+      </span>
+      <span class="brand-text">
+        <strong>Pankaj Bhardwaj</strong>
+        <small>Way 2 Labh</small>
+      </span>
+    </a>
+
+    <a class="tg-top join-link" href="https://t.me/+NZP5qrXn3BxlNTJl" aria-label="Join Telegram">
+      <span class="tg-icon"><svg viewBox="0 0 24 24"><path d="M21.8 3.2 18.5 20c-.25 1.18-.91 1.47-1.85.92l-5-3.68-2.41 2.32c-.27.27-.49.49-1 .49l.36-5.09 9.26-8.37c.4-.36-.09-.56-.63-.2L5.78 13.6.85 12.06c-1.07-.34-1.09-1.07.22-1.58L20.35 3c.9-.33 1.68.2 1.45.2Z"/></svg></span>
+      <span>Join</span>
+    </a>
+  </nav>
+
+  <section class="hero" id="top">
+    <div class="kicker"><span class="dot"></span>Free Telegram Mentorship</div>
+
+    <h1>Learn with Pankaj Bhardwaj.
+      <span class="hi-headline hi">पंकज भारद्वाज के साथ सीखें</span>
+    </h1>
+
+    <div class="brandtag">
+      <b>WAY 2 LABH</b>
+      <span>Your path to consistent, disciplined trading</span>
+    </div>
+
+    <div class="lead">
+      Understand real market entries, targets and risk management through
+      simple, practical chart lessons — built for beginners who want
+      clarity, not noise.
+      <span class="hi">आसान और व्यावहारिक चार्ट पाठों से एंट्री, टारगेट और जोखिम प्रबंधन को समझें — शुरुआती लोगों के लिए, बिना किसी उलझन के।</span>
+    </div>
+
+    <button class="primary join-link" type="button">
+      <span>Join Way 2 Labh</span>
+      <span class="hi">निशुल्क सीखने के लिए लर्निंग कम्युनिटी में जुड़े</span>
+    </button>
+    <span class="free">No fees · Beginner friendly · कोई फीस नहीं</span>
+  </section>
+
+  <section class="method">
+    <div class="section-title">
+      <span>The Way 2 Labh Method</span>
+      <h2>A simple, repeatable framework.</h2>
+      <p>Three steps, applied to every trade.
+        <span class="hi">हर ट्रेड में लागू होने वाले तीन सरल चरण।</span>
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <span class="num">STEP 01</span>
+        <h3>Entry</h3>
+        <p>Learn to spot high-probability entries using clean, rule-based chart setups.
+          <span class="hi">स्पष्ट और नियम-आधारित चार्ट सेटअप से बेहतर एंट्री पहचानना सीखें।</span>
+        </p>
+      </article>
+
+      <article class="card">
+        <span class="num">STEP 02</span>
+        <h3>Target</h3>
+        <p>Learn how to set realistic targets and book profits with discipline.
+          <span class="hi">यथार्थवादी टारगेट तय करना और अनुशासन के साथ मुनाफा बुक करना सीखें।</span>
+        </p>
+      </article>
+
+      <article class="card">
+        <span class="num">STEP 03</span>
+        <h3>Risk Management</h3>
+        <p>Learn to protect your capital with proper stop-loss and position sizing.
+          <span class="hi">सही स्टॉप-लॉस और पोजीशन साइज़िंग से अपनी पूंजी सुरक्षित रखना सीखें।</span>
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="join">
+    <h2>Start your Way 2 Labh journey today.
+      <span class="hi-serif">आज ही अपनी वे 2 लाभ यात्रा शुरू करें।</span>
+    </h2>
+    <p>Daily chart lessons · Beginner-friendly explanations · 100% free to join
+      <span class="hi">रोज़ाना चार्ट सीखें · आसान समझ · जुड़ना पूरी तरह निःशुल्क</span>
+    </p>
+    <button class="primary join-link" type="button">
+      <span>JOIN NOW</span>
+      <span class="hi">निशुल्क सीखने के लिए लर्निंग कम्युनिटी में जुड़े</span>
+    </button>
+  </section>
+
+  <footer>
+    <b>Advertising by: SRS Marketing Agency</b>
+    <br>
+    <a href="https://t.me/srsagency" target="_blank" rel="noopener">t.me/srsagency</a>
+
+    <div class="disclaimer">
+      अस्वीकरण (Disclaimer) : For educational purposes only. This is not investment, trading or financial advice.
+      <span class="hi"> यह सामग्री केवल शैक्षिक और सूचनात्मक उद्देश्यों के लिए है। इसे वित्तीय, निवेश या ट्रेडिंग सलाह के रूप में नहीं लिया जाना चाहिए। निवेश और ट्रेडिंग में बाजार के जोखिम शामिल होते हैं। कोई भी वित्तीय निर्णय लेने से पहले कृपया स्वयं शोध करें या किसी प्रमाणित वित्तीय सलाहकार से परामर्श लें।</span>
+    </div>
+  </footer>
+</main>
+
+<script>
+(() => {
+  'use strict';
+
+  const CONFIG = Object.freeze({
+    pixelId: '2147424626181298',
+    telegramUrl: 'https://t.me/+NZP5qrXn3BxlNTJl',
+    pageViewDelayMs: 3000,
+    passiveReaderDelayMs: 8000,
+    minimumClickTimeMs: 1000,
+    trackedRedirectDelayMs: 700,
+    fastRedirectDelayMs: 50,
+    pageViewSessionKey: 'pankaj_way2labh_qualified_pv'
+  });
+
+  const pageOpenedAt = Date.now();
+
+  let pageViewTracked = false;
+  let leadTracked = false;
+  let navigationStarted = false;
+  let humanInteractionDetected = false;
+
+  function loadMetaPixel() {
+    const pixelGuardKey = `__pankajWay2LabhPixelInitialized_${CONFIG.pixelId}`;
+
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = true; n.version = '2.0'; n.queue = [];
+      t = b.createElement(e); t.async = true; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+    if (window[pixelGuardKey]) return;
+
+    let pixelAlreadyRegistered = false;
+    try {
+      if (typeof fbq.getState === 'function') {
+        const pixelState = fbq.getState();
+        pixelAlreadyRegistered = pixelState.pixels.some((pixel) => String(pixel.id) === String(CONFIG.pixelId));
+      }
+    } catch (error) {
+      pixelAlreadyRegistered = false;
+    }
+
+    if (!pixelAlreadyRegistered) fbq('init', CONFIG.pixelId);
+    window[pixelGuardKey] = true;
+  }
+
+  function sessionPageViewExists() {
+    try { return sessionStorage.getItem(CONFIG.pageViewSessionKey) === 'true'; }
+    catch (error) { return false; }
+  }
+
+  function saveSessionPageView() {
+    try { sessionStorage.setItem(CONFIG.pageViewSessionKey, 'true'); }
+    catch (error) { /* noop */ }
+  }
+
+  function automationDetected() {
+    return navigator.webdriver === true;
+  }
+
+  function tryQualifiedPageView() {
+    const timeOnPageMs = Date.now() - pageOpenedAt;
+    const interactionQualified = humanInteractionDetected && timeOnPageMs >= CONFIG.pageViewDelayMs;
+    const passiveReaderQualified = timeOnPageMs >= CONFIG.passiveReaderDelayMs;
+
+    const canTrack =
+      !pageViewTracked &&
+      !sessionPageViewExists() &&
+      !automationDetected() &&
+      (interactionQualified || passiveReaderQualified) &&
+      document.visibilityState === 'visible' &&
+      document.hasFocus() &&
+      typeof window.fbq === 'function';
+
+    if (!canTrack) return;
+
+    fbq('track', 'PageView', {
+      qualified_view: true,
+      human_interaction: humanInteractionDetected,
+      qualification: interactionQualified ? 'interaction_3_seconds' : 'focused_8_seconds',
+      time_on_page: Math.round(timeOnPageMs / 1000)
+    });
+
+    pageViewTracked = true;
+    saveSessionPageView();
+  }
+
+  function recordHumanInteraction(event) {
+    if (!event.isTrusted || humanInteractionDetected) return;
+    humanInteractionDetected = true;
+    tryQualifiedPageView();
+  }
+
+  function initializeVisitorQualification() {
+    ['pointerdown', 'touchstart', 'keydown', 'scroll', 'mousemove'].forEach((eventName) => {
+      window.addEventListener(eventName, recordHumanInteraction, { passive: true, once: true });
+    });
+    window.setTimeout(tryQualifiedPageView, CONFIG.pageViewDelayMs);
+    window.setTimeout(tryQualifiedPageView, CONFIG.passiveReaderDelayMs);
+  }
+
+  function handleTelegramClick(event) {
+    event.preventDefault();
+    if (navigationStarted) return;
+    navigationStarted = true;
+
+    const timeOnPageMs = Date.now() - pageOpenedAt;
+    const isQualifiedClick = event.isTrusted && !automationDetected() && timeOnPageMs >= CONFIG.minimumClickTimeMs;
+
+    if (isQualifiedClick && !leadTracked && typeof window.fbq === 'function') {
+      fbq('track', 'Lead', {
+        value: 0,
+        currency: 'INR',
+        destination: 'Telegram',
+        time_on_page: Math.round(timeOnPageMs / 1000)
+      });
+      leadTracked = true;
+    }
+
+    const redirectDelay = isQualifiedClick ? CONFIG.trackedRedirectDelayMs : CONFIG.fastRedirectDelayMs;
+    window.setTimeout(() => { window.location.assign(CONFIG.telegramUrl); }, redirectDelay);
+  }
+
+  function initializeTelegramButtons() {
+    document.querySelectorAll('.join-link').forEach((el) => {
+      el.addEventListener('click', handleTelegramClick);
+    });
+  }
+
+  loadMetaPixel();
+  initializeVisitorQualification();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeTelegramButtons, { once: true });
+  } else {
+    initializeTelegramButtons();
+  }
+})();
+</script>
+</body>
+</html>
